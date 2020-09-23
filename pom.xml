@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.zl</groupId>
+  <artifactId>learn-all</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <modules>
+    <module>learn-mybatis</module>
+    <module>learn-io</module>
+  </modules>
+
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.3.3.RELEASE</version>
+    <relativePath/>
+    <!-- lookup parent from repository -->
+  </parent>
+
+
+  <!--环境选择，默认为develop环境-->
+<!--  <profiles>
+    <profile>
+      <id>develop</id>
+      <properties>
+        <profiles.active>develop</profiles.active>
+      </properties>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+    </profile>
+    &lt;!&ndash; 项目打包 &ndash;&gt;
+    <profile>
+      <id>project</id>
+      <properties>
+        <profiles.active>project</profiles.active>
+      </properties>
+    </profile>
+  </profiles>-->
+
+  <!--依赖包版本统一管理-->
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <java.version>1.8</java.version>
+    <spring-cloud.version>Hoxton.SR7</spring-cloud.version>
+    <admin.version>2.3.0</admin.version>
+    <tomcat.version>9.0.37</tomcat.version>
+    <jackson.version>2.11.1</jackson.version>
+    <fastjson.version>1.2.71</fastjson.version>
+    <gson.version>2.8.5</gson.version>
+    <mysqljdbc.version>8.0.21</mysqljdbc.version>
+    <starter.druid.version>1.1.10</starter.druid.version>
+    <HikariCP.version>3.3.1</HikariCP.version>
+    <mybatis-plus.version>3.3.2</mybatis-plus.version>
+    <starter.mybatis.version>2.1.3</starter.mybatis.version>
+    <mybatis.gen.version>1.3.7</mybatis.gen.version>
+    <fdfsclient.version>1.26.5</fdfsclient.version>
+    <common.lang3>3.11</common.lang3>
+    <common.collection4>4.4</common.collection4>
+    <common.text>1.2</common.text>
+    <commonio.version>2.6</commonio.version>
+    <commons-codec.version>1.12</commons-codec.version>
+    <commons-beanutils.version>1.9.4</commons-beanutils.version>
+    <easyexcel.version>2.2.6</easyexcel.version>
+    <poi.version>4.1.2</poi.version>
+    <httpClient.version>4.5.12</httpClient.version>
+    <javax.mail>1.6.0</javax.mail>
+    <itextpdf.version>5.5.13</itextpdf.version>
+    <itextpdf.asian.version>5.2.0</itextpdf.asian.version>
+    <pdfbox.version>2.0.20</pdfbox.version>
+    <io.springfox.version>3.0.0</io.springfox.version>
+    <spring4all.version>1.9.1.RELEASE</spring4all.version>
+    <jjwt.version>0.9.1</jjwt.version>
+    <io.swagger.version>1.6.2</io.swagger.version>
+    <esapi.version>2.2.1.1</esapi.version>
+    <snappy.verson>1.1.7</snappy.verson>
+    <compress.version>1.20</compress.version>
+    <zxing.version>3.4.0</zxing.version>
+    <shiro.version>1.6.0</shiro.version>
+    <sentinel.version>1.7.2</sentinel.version>
+    <jaxen.version>1.2.0</jaxen.version>
+    <rabbitmq.http.client.version>3.7.0.RELEASE</rabbitmq.http.client.version>
+    <hibernate-validation.version>6.1.5.Final</hibernate-validation.version>
+    <!-- 构建时间戳 -->
+    <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
+    <!-- docker -->
+
+    <docker.repo.user>dianzifapiao</docker.repo.user>
+    <docker.repo.pass>Dzfp@2018</docker.repo.pass>
+    <drools.version>7.27.0.Final</drools.version>
+    <graphql.kickstart.version>5.10.0</graphql.kickstart.version>
+    <graphql.spqr.version>0.10.1</graphql.spqr.version>
+    <graphql.servlet.version>5.2.0</graphql.servlet.version>
+    <mapstruct.version>1.3.1.Final</mapstruct.version>
+    <caffeine.version>2.8.5</caffeine.version>
+    <reflectasm.version>1.11.9</reflectasm.version>
+    <tika.version>1.24.1</tika.version>
+    <xerces.version>2.11.0</xerces.version>
+    <bouncycastle.version>1.66</bouncycastle.version>
+    <iuap.sign.version>5.1.0-SNAPSHOT</iuap.sign.version>
+    <dom4j.version>2.1.3</dom4j.version>
+    <xmlapis.version>1.4.01</xmlapis.version>
+    <xmlgraphics.commons.version>2.4</xmlgraphics.commons.version>
+    <batik.version>1.13</batik.version>
+    <pdfbox.jbig2.version>3.0.3</pdfbox.jbig2.version>
+    <common.compress>1.20</common.compress>
+    <jasypt.version>3.0.3</jasypt.version>
+    <jna.version>5.2.0</jna.version>
+    <tencent.sm.version>1.2.0</tencent.sm.version>
+    <cxf.version>3.3.7</cxf.version>
+    <lombok.version>1.18.12</lombok.version>
+    <unirest-java.version>1.4.9</unirest-java.version>
+    <zip4j.version>2.6.1</zip4j.version>
+    <quartz.version>2.3.2</quartz.version>
+    <thumbnailator.version>0.4.8</thumbnailator.version>
+    <im4java.version>1.4.0</im4java.version>
+  </properties>
+
+
+  <dependencyManagement>
+
+    <dependencies>
+      <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>${mysqljdbc.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-logging</artifactId>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-test</artifactId>
+        <scope>test</scope>
+      </dependency>
+      <!-- fastjson -->
+      <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>fastjson</artifactId>
+        <version>${fastjson.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-lang3</artifactId>
+        <version>${common.lang3}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-annotations</artifactId>
+        <version>${jackson.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.fasterxml.jackson.dataformat</groupId>
+        <artifactId>jackson-dataformat-xml</artifactId>
+        <version>${jackson.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.fasterxml.jackson.datatype</groupId>
+        <artifactId>jackson-datatype-jsr310</artifactId>
+        <version>${jackson.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-databind</artifactId>
+        <version>${jackson.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-collections4</artifactId>
+        <version>${common.collection4}</version>
+      </dependency>
+      <dependency>
+        <groupId>commons-codec</groupId>
+        <artifactId>commons-codec</artifactId>
+      </dependency>
+      <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>${lombok.version}</version>
+        <scope>provided</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>commons-io</groupId>
+        <artifactId>commons-io</artifactId>
+        <version>${commonio.version}</version>
+      </dependency>
+    </dependencies>
+
+  </dependencyManagement>
+
+
+
+</project>
